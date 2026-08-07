@@ -34,27 +34,15 @@ $jobsStmt = $pdo->prepare("SELECT jobs.*, (SELECT COUNT(*) FROM applications WHE
 $jobsStmt->execute([$company['id']]);
 $jobs = $jobsStmt->fetchAll();
 
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/employer-header.php';
 ?>
-<div class="page-header">
-  <div class="container">
-    <h1>Manage Jobs</h1>
-    <p>ดูและจัดการประกาศงานทั้งหมดของคุณ</p>
-  </div>
-</div>
-
-<div class="container section">
-  <div class="dashboard-nav">
-    <a href="dashboard-employer.php">Overview</a>
-    <a href="post-job.php">Post a Job</a>
-    <a href="manage-jobs.php" class="active">Manage Jobs</a>
-    <a href="company-profile.php">Company Profile</a>
-  </div>
+<div class="dash-topbar"><h1><span class="dash-topbar-icon"><?= icon('document',18) ?></span> งานที่ประกาศไว้</h1></div>
 
   <?php if (isset($_GET['posted'])): ?>
     <div class="alert alert-success">Job posted successfully!</div>
   <?php endif; ?>
 
+  <div class="widget-card">
   <table>
     <thead><tr><th>Title</th><th>Type</th><th>Status</th><th>Applicants</th><th>Actions</th></tr></thead>
     <tbody>
@@ -76,6 +64,6 @@ require_once __DIR__ . '/includes/header.php';
       <?php endif; ?>
     </tbody>
   </table>
-</div>
+  </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/employer-footer.php'; ?>

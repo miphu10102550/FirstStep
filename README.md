@@ -39,6 +39,13 @@ http://localhost/firststep/setup-seed.php
 
 **หลังรันเสร็จ ให้ลบไฟล์ `setup-seed.php` ทิ้งเพื่อความปลอดภัย** (หรือจะเก็บไว้ก็ได้ถ้าเป็นเครื่อง dev ส่วนตัว)
 
+## 4.5) อัปเดตฐานข้อมูล (ถ้าเคย import database.sql มาก่อนหน้านี้แล้ว)
+ถ้าคุณเคย import `database.sql` และสร้างบัญชีไปแล้วก่อนหน้านี้ ต้องรันสคริปต์นี้เพิ่มเติมครั้งเดียว เพื่อเพิ่มคอลัมน์ใหม่ที่ใช้ในหน้าโปรไฟล์/แดชบอร์ดที่อัปเดต (first_name, last_name, avatar, birthdate, gender, address ฯลฯ):
+```
+http://localhost/firststep/migrate-profile-fields.php
+```
+(ถ้าเป็นการติดตั้งใหม่ตั้งแต่ต้น ไม่จำเป็นต้องรันไฟล์นี้ เพราะ `database.sql` มีคอลัมน์เหล่านี้ครบอยู่แล้ว)
+
 ## 5) เข้าใช้งานเว็บไซต์
 ```
 http://localhost/firststep/
@@ -98,3 +105,9 @@ firststep/
 
 ## หมายเหตุ
 - ระบบนี้เป็น MVP ที่ครอบคลุมฟังก์ชันหลักตาม Site Map ที่ให้มา ส่วนฟีเจอร์เสริม เช่น ระบบชำระเงิน (PayPal/Credit Payment) และ Identity Provider ตาม Use Case Diagram ยังไม่ได้ implement เนื่องจากต้องเชื่อมต่อ API ภายนอก — แจ้งได้หากต้องการให้เพิ่มเติมส่วนนี้
+
+## หน้าที่อัปเดตล่าสุด (Sidebar Dashboard Redesign)
+- **profile.php** — หน้าสร้างโปรไฟล์ผู้ใช้ (job seeker) แบบแท็บด้านซ้าย: ข้อมูลส่วนตัว / การศึกษา / ประสบการณ์ทำงาน พร้อมอัปโหลดรูปโปรไฟล์
+- **admin/index.php** และหน้า admin อื่น ๆ — ปรับเป็น sidebar เมนูด้านซ้ายสไตล์ dashboard พร้อมสถิติ, กราฟ, และ widget ต่าง ๆ. เพิ่มหน้าใหม่: admin/applicants.php (รายชื่อผู้สมัครทั้งระบบ), admin/notifications.php, admin/settings.php
+- **dashboard-employer.php** และหน้า employer อื่น ๆ (post-job, manage-jobs, edit-job, applicants, company-profile) — ปรับเป็น sidebar เมนูด้านซ้ายเช่นกัน พร้อมสถิติผู้สมัคร, กราฟวงกลม, กราฟเส้น. เพิ่มหน้าใหม่: applicants-all.php (ผู้สมัครทั้งหมดของบริษัท), employer-notifications.php, employer-settings.php
+- โลโก้บริษัทและ thumbnail ในการ์ดต่าง ๆ ใช้ตัวอักษรย่อสี/ไอคอนแทนรูปจริง เพื่อไม่ให้ต้องพึ่งอินเทอร์เน็ต/ลิขสิทธิ์แบรนด์

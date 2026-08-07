@@ -11,6 +11,9 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     role ENUM('jobseeker','employer','admin') NOT NULL DEFAULT 'jobseeker',
     full_name VARCHAR(150) NOT NULL,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    avatar VARCHAR(255),
     email VARCHAR(150) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     phone VARCHAR(30),
@@ -31,6 +34,14 @@ CREATE TABLE jobseeker_profiles (
     preferred_location VARCHAR(150),
     resume_file VARCHAR(255),
     bio TEXT,
+    birthdate DATE,
+    gender VARCHAR(20),
+    address VARCHAR(255),
+    province VARCHAR(100),
+    district VARCHAR(100),
+    subdistrict VARCHAR(100),
+    postal_code VARCHAR(10),
+    work_experience TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 

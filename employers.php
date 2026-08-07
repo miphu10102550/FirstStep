@@ -12,15 +12,15 @@ require_once __DIR__ . '/includes/header.php';
 <div class="container section">
   <div class="grid grid-3">
     <div class="card">
-      <h3>📝 Post a Job</h3>
+      <h3><?= icon('note',22) ?> Post a Job</h3>
       <p>สร้างประกาศงานได้ง่าย ๆ และเข้าถึงผู้สมัครที่ใช่ในไม่กี่นาที</p>
     </div>
     <div class="card">
-      <h3>🔍 Search Candidates</h3>
+      <h3><?= icon('search',22) ?> Search Candidates</h3>
       <p>ค้นหาโปรไฟล์ผู้สมัครงานที่ตรงกับความต้องการของบริษัทคุณ</p>
     </div>
     <div class="card">
-      <h3>📊 Manage Applicants</h3>
+      <h3><?= icon('chart',22) ?> Manage Applicants</h3>
       <p>จัดการใบสมัครและติดตามสถานะผู้สมัครได้ในที่เดียว</p>
     </div>
   </div>

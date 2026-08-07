@@ -30,24 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $company = $stmt->fetch();
 }
 
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/employer-header.php';
 ?>
-<div class="page-header">
-  <div class="container">
-    <h1>Company Profile</h1>
-    <p>ข้อมูลบริษัทที่จะแสดงให้ผู้สมัครเห็น</p>
-  </div>
-</div>
+<div class="dash-topbar"><h1><span class="dash-topbar-icon"><?= icon('building',18) ?></span> บริษัทของคุณ</h1></div>
 
-<div class="container section">
-  <div class="dashboard-nav">
-    <a href="dashboard-employer.php">Overview</a>
-    <a href="post-job.php">Post a Job</a>
-    <a href="manage-jobs.php">Manage Jobs</a>
-    <a href="company-profile.php" class="active">Company Profile</a>
-  </div>
-
-  <div class="card" style="max-width:650px;">
+  <div class="widget-card" style="max-width:650px;">
     <?php if ($success): ?><div class="alert alert-success"><?= htmlspecialchars($success) ?></div><?php endif; ?>
     <form method="post">
       <div class="form-group">
@@ -69,6 +56,5 @@ require_once __DIR__ . '/includes/header.php';
       <button type="submit" class="btn btn-primary btn-block">Save Company Profile</button>
     </form>
   </div>
-</div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/employer-footer.php'; ?>

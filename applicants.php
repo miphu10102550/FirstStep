@@ -37,25 +37,13 @@ $apps = $pdo->prepare("
 $apps->execute([$jobId]);
 $applicants = $apps->fetchAll();
 
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/employer-header.php';
 ?>
-<div class="page-header">
-  <div class="container">
-    <h1>Applicants for <?= htmlspecialchars($job['title']) ?></h1>
-    <p><?= count($applicants) ?> application(s) received</p>
-  </div>
-</div>
-
-<div class="container section">
-  <div class="dashboard-nav">
-    <a href="dashboard-employer.php">Overview</a>
-    <a href="post-job.php">Post a Job</a>
-    <a href="manage-jobs.php" class="active">Manage Jobs</a>
-    <a href="company-profile.php">Company Profile</a>
-  </div>
+<div class="dash-topbar"><h1><span class="dash-topbar-icon"><?= icon('clipboard',18) ?></span> Applicants — <?= htmlspecialchars($job['title']) ?></h1></div>
+<p style="color:var(--muted);margin-top:-14px;"><?= count($applicants) ?> application(s) received</p>
 
   <?php foreach ($applicants as $a): ?>
-  <div class="card" style="margin-bottom:16px;">
+  <div class="widget-card" style="margin-bottom:16px;">
     <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
       <div>
         <div class="job-title"><?= htmlspecialchars($a['full_name']) ?></div>
@@ -84,6 +72,5 @@ require_once __DIR__ . '/includes/header.php';
   <?php if (empty($applicants)): ?>
     <p class="empty-state">No applicants yet for this job.</p>
   <?php endif; ?>
-</div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/employer-footer.php'; ?>

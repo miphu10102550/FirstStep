@@ -35,24 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/employer-header.php';
 ?>
-<div class="page-header">
-  <div class="container">
-    <h1>Post a Job</h1>
-    <p>สร้างประกาศงานใหม่สำหรับ <?= htmlspecialchars($company['name']) ?></p>
-  </div>
-</div>
+<div class="dash-topbar"><h1><span class="dash-topbar-icon"><?= icon('plus',18) ?></span> ประกาศงานใหม่</h1></div>
 
-<div class="container section">
-  <div class="dashboard-nav">
-    <a href="dashboard-employer.php">Overview</a>
-    <a href="post-job.php" class="active">Post a Job</a>
-    <a href="manage-jobs.php">Manage Jobs</a>
-    <a href="company-profile.php">Company Profile</a>
-  </div>
-
-  <div class="card" style="max-width:700px;">
+<div class="widget-card" style="max-width:700px;">
     <?php if ($error): ?><div class="alert alert-error"><?= htmlspecialchars($error) ?></div><?php endif; ?>
     <form method="post">
       <div class="form-group">
@@ -96,7 +83,6 @@ require_once __DIR__ . '/includes/header.php';
       </div>
       <button type="submit" class="btn btn-primary btn-block">Publish Job</button>
     </form>
-  </div>
 </div>
 
-<?php require_once __DIR__ . '/includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/employer-footer.php'; ?>

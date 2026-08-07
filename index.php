@@ -21,15 +21,15 @@ require_once __DIR__ . '/includes/header.php';
     <p>แพลตฟอร์มหางานที่สุดยอดสุดสำหรับเด็กจบใหม่ ไม่ต้องมีประสบการณ์—เริ่มอนาคตของคุณวันนี้</p>
     <form action="jobs.php" method="get" class="search-box">
       <div class="search-field">
-        <label>📍 Location</label>
+        <label><?= icon('pin',15) ?> Location</label>
         <input type="text" name="location" placeholder="e.g. Bangkok">
       </div>
       <div class="search-field">
-        <label>🗂️ Job Title</label>
+        <label><?= icon('folder',15) ?> Job Title</label>
         <input type="text" name="q" placeholder="e.g. Developer">
       </div>
       <div class="search-field">
-        <label>💰 Expected Salary</label>
+        <label><?= icon('coin',15) ?> Expected Salary</label>
         <select name="salary">
           <option value="">Any</option>
           <option value="0-20000">0 - 20K THB</option>
@@ -38,7 +38,7 @@ require_once __DIR__ . '/includes/header.php';
           <option value="50000-999999">50K+ THB</option>
         </select>
       </div>
-      <button type="submit" class="search-submit">🔍 Search</button>
+      <button type="submit" class="search-submit"><?= icon('search',16) ?> Search</button>
     </form>
   </div>
 </section>
